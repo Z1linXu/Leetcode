@@ -50,3 +50,40 @@ class Solution {
 
 
 ```
+
+
+# 2. Remove Element
+
+
+## Intuition
+Creat a new array and pointer, using for loop to filter the array, for loop will continue if val is equal to one of the array. Finally copy new array into old array
+
+
+
+## Complexity
+- Time complexity:
+  O(n)
+- Space complexity:
+  O(n)
+## Code
+```
+class Solution {
+    public int removeElement(int[] nums, int val) {
+    int pointer = 0;
+    // 创建新数组
+    int[] newNums = new int[nums.length];
+    for (int i = 0; i < nums.length; i++) {
+        if (nums[i] == val) {
+            continue;
+        } else {
+            newNums[pointer] = nums[i];
+            pointer++;
+        }
+    }
+    for (int i = 0; i< nums.length; i++){
+        nums[i] = newNums[i];
+    }
+    return pointer;
+    }
+}
+```
