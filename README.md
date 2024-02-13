@@ -87,3 +87,48 @@ class Solution {
     }
 }
 ```
+
+# 3. Remove Duplicates from Sorted Array
+
+
+## Intuition
+Creat a new array and pointer, using for loop to filter the array, for loop will continue if val is equal to the previous value. Finally copy new array into old array
+
+
+
+## Complexity
+- Time complexity:
+  O(n)
+- Space complexity:
+  O(n)
+## Code
+```
+class Solution {
+
+    public int removeDuplicates(int[] nums) {
+        int k=0; // the number of unique elements of nums to be k
+        int[] newNums = new int[nums.length];
+        for(int i = 0; i< nums.length; i++)
+        {
+            if(i==0){
+                newNums[i] = nums[i];
+                k++;
+            }
+            else{
+                if(nums[i]== newNums[k-1])
+                {
+                    continue;
+                }
+                else{
+                    newNums[k] = nums[i];
+                    k++;
+                }
+            }
+        }
+         for (int i = 0; i< nums.length; i++){
+            nums[i] = newNums[i];
+        }
+        return(k);
+    }
+}
+```
